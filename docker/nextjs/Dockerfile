@@ -2,6 +2,8 @@ FROM node:22.13.1
 
 WORKDIR /app
 
-RUN yarn install
+COPY app/package.json app/package-lock.json ./
 
-CMD ["yarn", "dev"]
+RUN npm install
+
+CMD ["npx", "next", "dev"]
